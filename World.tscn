@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://Pause.gd" type="Script" id=11]
 [ext_resource path="res://Nexa Bold.otf" type="DynamicFontData" id=12]
 [ext_resource path="res://Fonts/NEXA BOOK.OTF" type="DynamicFontData" id=13]
+[ext_resource path="res://World.gd" type="Script" id=14]
+[ext_resource path="res://EnemyYSort.gd" type="Script" id=15]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -507,6 +509,7 @@ shadow_color = Color( 1, 1, 1, 0.6 )
 
 [node name="World" type="Node2D"]
 position = Vector2( -92, -1 )
+script = ExtResource( 14 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( -144, 128 )
@@ -715,79 +718,82 @@ position = Vector2( -604, -319 )
 [node name="Tree6" parent="YSort/Trees" instance=ExtResource( 9 )]
 position = Vector2( -716, -343 )
 
-[node name="Bat" parent="YSort" instance=ExtResource( 6 )]
+[node name="Enemy" type="YSort" parent="YSort"]
+script = ExtResource( 15 )
+
+[node name="Bat" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( 127, -35 )
 
-[node name="Bat2" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat2" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( 230, 126 )
 
-[node name="Bat22" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat22" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( 604, 313 )
 
-[node name="Bat4" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat4" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( 128, -568 )
 
-[node name="Bat5" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat5" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( 144, -544 )
 
-[node name="Bat6" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat6" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( 176, -568 )
 
-[node name="Bat13" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat13" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( -624, -195 )
 
-[node name="Bat19" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat19" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( -932, -119 )
 
-[node name="Bat20" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat20" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( -868, -55 )
 
-[node name="Bat21" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat21" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( -788, -127 )
 
-[node name="Bat23" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat23" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( -964, -616 )
 
-[node name="Bat24" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat24" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( -806, -610 )
 
-[node name="Bat25" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat25" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( -476, -535 )
 
-[node name="Bat14" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat14" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( -399, -199 )
 
-[node name="Bat7" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat7" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( 360, -576 )
 
-[node name="Bat8" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat8" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( 336, -544 )
 
-[node name="Bat9" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat9" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( 392, -544 )
 
-[node name="Bat10" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat10" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( 256, -576 )
 
-[node name="Bat11" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat11" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( 228, -543 )
 
-[node name="Bat15" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat15" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( 180, -535 )
 
-[node name="Bat16" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat16" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( 212, -567 )
 
-[node name="Bat18" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat18" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( -684, -415 )
 
-[node name="Bat17" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat17" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( 308, -575 )
 
-[node name="Bat12" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat12" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( 288, -544 )
 
-[node name="Bat3" parent="YSort" instance=ExtResource( 6 )]
+[node name="Bat3" parent="YSort/Enemy" groups=["Bat_Enemy"] instance=ExtResource( 6 )]
 position = Vector2( 34, 85 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

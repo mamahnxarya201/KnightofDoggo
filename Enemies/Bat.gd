@@ -26,8 +26,11 @@ onready var softCollision = $SoftCollision
 onready var wanderController = $WanderController
 onready var animationPlayer = $AnimationPlayer
 
+signal killed
+
 func _ready():
 	state = pick_random_state([IDLE, WANDER])
+	connect("killed", get_node("../../Player"), "_on_Bat_killed")
 
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
@@ -81,6 +84,8 @@ func _on_Hurtbox_area_entered(area):
 	hurtBox.start_invincibility(0.4)
  
 func _on_Stats_no_health():
+	emit_signal("killed")
+	print('from bat node killed !')
 	queue_free()
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)

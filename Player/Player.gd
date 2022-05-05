@@ -25,6 +25,8 @@ onready var swordHitbox = $HitboxPivot/SwordHitbox
 onready var hurtBox = $Hurtbox
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 
+signal xp_changed
+
 func _ready():
 	randomize()
 	stats.connect("no_health", self, "queue_free")
@@ -98,6 +100,11 @@ func _on_Hurtbox_area_entered(area):
 
 func _on_Hurtbox_invincibility_started():
 	blinkAnimationPlayer.play("Start")
-	
+
 func _on_Hurtbox_invincibility_ended():
 	blinkAnimationPlayer.play("Stop")
+
+func _on_Bat_killed():
+	print('killed from bat killed signal !')
+	stats.xp += 5
+	emit_signal("xp_changed")

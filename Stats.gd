@@ -22,4 +22,5 @@ func set_health(value):
 		health = 4
 
 func _ready():
+	connect("no_health", self, "_on_Enemy_killed")
 	self.health = max_health
